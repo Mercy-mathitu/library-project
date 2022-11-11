@@ -1,9 +1,11 @@
 // Book Class: represents a book
 class Book {
-    constructor (title, author, pages) {
+    constructor (title, author, pages, read) {
         this.title = title;
         this.author = author;
         this.pages = pages;
+
+
     }
 }
 
@@ -24,7 +26,7 @@ class UI {
         row.innerHTML = `
         <td>${book.title}</td>
         <td>${book.author}</td>
-        <td id="read">TBA</td>
+        <td id="if-read"></td>
         <td>${book.pages}</td>
         <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
         `
@@ -102,7 +104,7 @@ class Store {
     }
 }
 
-// Event: Add whether read
+
 
 //Event: Displays books
 document.addEventListener("DOMContentLoaded", UI.displayBooks)
@@ -116,12 +118,23 @@ document.querySelector("#book-form").addEventListener("submit", (e) => {
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
 
+    // Event: Add whether read
+    const read = document.querySelector("#read");
+
+read.addEventListener('change', function() {
+  if (this.checked) {
+    alert("Checkbox is checked..");
+  } else {
+    alert("Checkbox is not checked..");
+  }
+});
+
     //validate 
     if(title === '' || author === '' || pages ==='') {
         UI.showAlert("Please fill in all the fields", "danger")
     } else {
         //instanciate book
-    const book = new Book(title, author, pages);
+    const book = new Book(title, author, pages, read);
     
     // add book to UI
     UI.addBookToList(book)
