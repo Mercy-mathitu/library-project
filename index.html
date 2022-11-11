@@ -25,7 +25,7 @@
                 <input type="text" id="pages" class="form-control">
             </div>
             <div class="form-check mt-3">
-                <input class="form-check-input" type="checkbox" value="Read" id="read">
+                <input class="form-check-input" type="checkbox" name="checkbox" value="Read" id="read">
                 <label class="form-check-label" for="read">
                     Read
                 </label>
@@ -37,11 +37,13 @@
                 <tr>
                     <th scope="col">Title</th>
                     <th scope="col">Author</th>
+                    <th scope="col">Read?</th>
                     <th scope="col">Pages</th>
-                    <th scope="col">Read</th>
-                    <th scope="col"></th>
+                    <th scope="col">Remove</th>
                 </tr>
             </thead>
+            <tbody id="book-list"></tbody>
+            
         </table>
     </div>
     <script src="index.js"></script>
