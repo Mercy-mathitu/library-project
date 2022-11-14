@@ -4,8 +4,7 @@ class Book {
         this.title = title;
         this.author = author;
         this.pages = pages;
-
-
+        this.read = read;
     }
 }
 
@@ -13,7 +12,7 @@ class Book {
 class UI {
     static displayBooks() {
 
-        
+
         const books = Store.getBooks()
 
         books.forEach((book) => UI.addBookToList(book))
@@ -26,27 +25,27 @@ class UI {
         row.innerHTML = `
         <td>${book.title}</td>
         <td>${book.author}</td>
-        <td id="if-read"></td>
+        <td id="if-read">${book.read}</td>
         <td>${book.pages}</td>
         <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
         `
 
         bookList.appendChild(row)
-        
+
     }
 
     //read book checkbox
-     
-    
 
-    // delete book function 
+
+
+    // delete book function
     static deleteBook(el) {
         if(el.classList.contains("delete")) {
             el.parentElement.parentElement.remove()
         }
     }
 
-    
+
 
     // is any field has no input
     static showAlert(message, className) {
@@ -66,13 +65,14 @@ class UI {
             document.getElementById("title").value = ""
             document.getElementById("author").value = ""
             document.getElementById("pages").value = ""
+            document.querySelector("#read").checked = false;
         }
 }
 
 // Strore class: Handles local storage
 class Store {
     static getBooks() {
-        let books; 
+        let books;
         if (localStorage.getItem("books") === null) {
             books = []
         }
@@ -117,25 +117,15 @@ document.querySelector("#book-form").addEventListener("submit", (e) => {
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
+    const read = document.querySelector("#read").checked ? "Read" : "Not Read";
 
-    // Event: Add whether read
-    const read = document.querySelector("#read");
-
-read.addEventListener('change', function() {
-  if (this.checked) {
-    alert("Checkbox is checked..");
-  } else {
-    alert("Checkbox is not checked..");
-  }
-});
-
-    //validate 
-    if(title === '' || author === '' || pages ==='') {
+    //validate
+    if(title === '' || author === '' || pages === '') {
         UI.showAlert("Please fill in all the fields", "danger")
     } else {
         //instanciate book
     const book = new Book(title, author, pages, read);
-    
+
     // add book to UI
     UI.addBookToList(book)
 
@@ -144,20 +134,20 @@ read.addEventListener('change', function() {
 
     //show success message
     UI.showAlert("Book added", "success")
-    
+
     UI.clearFields()
 
-    
+
     }
 
-    
+
 })
 
 // Event: Remove a book
 document.getElementById("book-list").addEventListener("click", (e) => {
     UI.deleteBook(e.target)
 
-    //remove book from local storage 
+    //remove book from local storage
     Store.removeBook(e.target.targetElement.previousElementSibling.textContent)
 
     //show delete message
