@@ -1,3 +1,16 @@
+// hiding and displaying library divs
+const openLibContainer = document.querySelector(".open-library")
+
+const libraryContainer = document.querySelector(".library-container")
+const openBtn = document.getElementById("open-btn")
+
+openBtn.addEventListener("click", () => {
+    libraryContainer.classList.remove("hidden")
+    openLibContainer.style.display = "none"
+})
+
+
+
 // Book Class: represents a book
 class Book {
     constructor (title, author, pages, read) {

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/5/spacelab/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <title>My Library App</title>
 </head>
@@ -13,13 +13,13 @@
     <div class="container">
         <div class="open-library">
             <h1>
-                <i class="fas fa-book-open text-light"></i>
+                <i class="fas fa-book-open text-info"></i>
             </h1>
-            <button class="btn btn-light">Open Library</button>
+            <button class="btn btn-info" id="open-btn">Open Library</button>
         </div>
     
         <div class="library-container hidden">
-        <h1 class="display-4">My <span class="text-primary">Library</span> App</h1>
+        <h1 class="display-4">My <span class="text-info">Library</span> App</h1>
         <form id="book-form">
             <div class="form-group mt-3">
                 <label for="title">Title</label>
@@ -39,7 +39,7 @@
                     Read
                 </label>
             </div>
-            <input type="submit" value="Add Book" class="btn btn-primary btn-block mt-3">
+            <input type="submit" value="Add Book" class="btn btn-success btn-block mt-3">
         </form>
         <table class="table mt-5">
             <thead>
