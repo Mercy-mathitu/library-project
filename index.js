@@ -25,8 +25,8 @@ class UI {
         row.innerHTML = `
         <td>${book.title}</td>
         <td>${book.author}</td>
-        <td id="if-read">${book.read}</td>
         <td>${book.pages}</td>
+        <td id="if-read">${book.read}</td>
         <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
         `
 
@@ -148,7 +148,7 @@ document.getElementById("book-list").addEventListener("click", (e) => {
     UI.deleteBook(e.target)
 
     //remove book from local storage
-    Store.removeBook(e.target.targetElement.previousElementSibling.textContent)
+    Store.removeBook(e.target.parentElement.previousElementSibling.previousElementSibling.textContent)
 
     //show delete message
     UI.showAlert("Book deleted", "success")
