@@ -1,0 +1,23 @@
+
+
+.open-library {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 300px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    border-radius: 30px;
+}
+
+.open-library .btn {
+    padding: 20px;
+    border-radius: 20px;
+}
+.open-library h1 {
+    font-size: 100px;
+}
