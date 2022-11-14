@@ -1,12 +1,11 @@
 // hiding and displaying library divs
 const openLibContainer = document.querySelector(".open-library")
-
 const libraryContainer = document.querySelector(".library-container")
 const openBtn = document.getElementById("open-btn")
 
 openBtn.addEventListener("click", () => {
-    libraryContainer.classList.remove("hidden")
-    openLibContainer.style.display = "none"
+    libraryContainer.classList.remove("d-none")
+    openLibContainer.classList.add("d-none")
 })
 
 
